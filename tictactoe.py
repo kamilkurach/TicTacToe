@@ -58,13 +58,13 @@ def main():
       ttt.print_board()
       print('\n')
       if ttt.turn == "X":
-        position = input("Enter new X positino (ex. A1): ")
+        position = input("Enter new X (ex. A1): ")
         print('\n')
         ttt.place_o_x(position, ttt.turn)
         if ttt.is_placed == True:
            ttt.turn = "O"
       elif ttt.turn == "O":
-        position = input("Enter new O positino (ex. B2): ")
+        position = input("Enter new O (ex. B2): ")
         print('\n')
         ttt.place_o_x(position, ttt.turn)
         if ttt.is_placed == True:
