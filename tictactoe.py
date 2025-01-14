@@ -85,7 +85,6 @@ class TicTacToe:
         tmp = []
         for i, row in enumerate(board):
             tmp.append(row[len(board) - 1 - i])
-            print(tmp)
         if tmp.count('x') == 3:
             print("X won!")
             self.is_X_win = True
