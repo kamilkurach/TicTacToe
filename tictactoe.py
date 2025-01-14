@@ -6,6 +6,8 @@ class TicTacToe:
         self.board = None
         self.turn = "X"
         self.is_placed = None
+        self.is_X_win = None
+        self.is_O_win = None
 
     def create_empty_board(self):
         self.board = [
@@ -41,7 +43,19 @@ class TicTacToe:
           self.is_placed = False
 
     def resolve_board_state(self):
-        pass
+        self.check_rows()
+        #self.check_cols()
+        #self.check_diag()
+
+    def check_rows(self):
+        board = self.board[1:]
+        for row in board:
+           if row.count('x') == 3:
+              print("X won!")
+              self.is_X_win = True
+           elif row.count('o') == 3:
+              print("O won!")
+              self.is_O_win = True
 
     def print_board(self):
         board = self.board
@@ -69,6 +83,11 @@ def main():
         ttt.place_o_x(position, ttt.turn)
         if ttt.is_placed == True:
            ttt.turn = "X"
+      
+      ttt.resolve_board_state()
+      
+      if ttt.is_O_win is True or ttt.is_X_win is True:
+         break
 
 if __name__ == "__main__":
     main()
