@@ -44,7 +44,7 @@ class TicTacToe:
 
     def resolve_board_state(self):
         self.check_rows()
-        #self.check_cols()
+        self.check_cols()
         #self.check_diag()
 
     def check_rows(self):
@@ -54,6 +54,19 @@ class TicTacToe:
               print("X won!")
               self.is_X_win = True
            elif row.count('o') == 3:
+              print("O won!")
+              self.is_O_win = True
+
+    def check_cols(self):
+        board = self.board[1:]
+        for i in range(3):
+           tmp = []
+           for row in board:
+              tmp.append(row[i])
+           if tmp.count('x') == 3:
+              print("X won!")
+              self.is_X_win = True
+           elif tmp.count('o') == 3:
               print("O won!")
               self.is_O_win = True
 
@@ -87,6 +100,7 @@ def main():
       ttt.resolve_board_state()
       
       if ttt.is_O_win is True or ttt.is_X_win is True:
+         ttt.print_board()
          break
 
 if __name__ == "__main__":
